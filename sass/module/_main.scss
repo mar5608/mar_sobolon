@@ -185,7 +185,7 @@ body {
   padding-right: 15px;
   @include mixin.mq(pc) {
     padding-left: 0;
-    padding-right: 40;
+    padding-right: 40px;
   }
 }
 
@@ -195,10 +195,15 @@ body {
   }
 }
 
-.mv__img {
+.mv__picture {
+  display: block;
+  text-align: right;
   img {
+    width: 345px;
+    aspect-ratio: 345 /414; //縦横比を設定
     @include mixin.mq(pc) {
-      max-width: 990px;
+      width: 990px;
+      aspect-ratio: 990 /660; //縦横比を設定
     }
   }
 }
@@ -206,11 +211,12 @@ body {
 .mv__content {
   @include mixin.mq(pc) {
     background: color.$base-white;
-    padding: 80px 40px;
+    padding: 80px 30px 80px 40px;
     width: 366px;
-    border: 1px solid red;
+    height: 318px;
     position: absolute;
-    top: 60px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -218,11 +224,20 @@ body {
   font-size: 26px;
   font-weight: 600;
   margin-top: 30px;
+  letter-spacing: -0.01rem;
+  @include mixin.mq(pc) {
+    margin-top: 0px;
+  }
 }
 
 .mv__text {
+  margin-top: 16px;
+  span {
+    display: block;
+  }
   @include mixin.mq(pc) {
     margin-top: 16px;
+    line-height: 1.68;
   }
 }
 
@@ -255,7 +270,7 @@ body {
   &::before {
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: 0;
     left: calc(50% - 60px / 2);
     width: 60px;
     height: 1px;
@@ -284,14 +299,15 @@ body {
   @include mixin.mq(pc) {
     margin-top: 64px;
     display: flex;
-    gap: 80px;
+    gap: 42px;
     align-items: center;
   }
 }
 
 .concept__img {
   img {
-    width: 680px;
+    width: 600px;
+    aspect-ratio: 600 /400; //縦横比を設定
   }
   @include mixin.mq(pc) {
     width: 55%;
@@ -302,6 +318,7 @@ body {
   margin-top: 34px;
   @include mixin.mq(pc) {
     width: 45%;
+    margin-top: 6px;
   }
 }
 
@@ -316,5 +333,6 @@ body {
   margin-top: 22px;
   @include mixin.mq(pc) {
     margin-top: 40px;
+    // line-height: 1.72;
   }
 }

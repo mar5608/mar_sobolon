@@ -301,7 +301,7 @@ body {
 @media screen and (min-width: 768px) {
   .mv__inner {
     padding-left: 0;
-    padding-right: 40;
+    padding-right: 40px;
   }
 }
 
@@ -311,20 +311,31 @@ body {
   }
 }
 
+.mv__picture {
+  display: block;
+  text-align: right;
+}
+.mv__picture img {
+  width: 345px;
+  aspect-ratio: 345/414;
+}
 @media screen and (min-width: 768px) {
-  .mv__img img {
-    max-width: 990px;
+  .mv__picture img {
+    width: 990px;
+    aspect-ratio: 990/660;
   }
 }
 
 @media screen and (min-width: 768px) {
   .mv__content {
     background: #fff;
-    padding: 80px 40px;
+    padding: 80px 30px 80px 40px;
     width: 366px;
-    border: 1px solid red;
+    height: 318px;
     position: absolute;
-    top: 60px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
 }
 
@@ -332,11 +343,24 @@ body {
   font-size: 26px;
   font-weight: 600;
   margin-top: 30px;
+  letter-spacing: -0.01rem;
+}
+@media screen and (min-width: 768px) {
+  .mv__head {
+    margin-top: 0px;
+  }
 }
 
+.mv__text {
+  margin-top: 16px;
+}
+.mv__text span {
+  display: block;
+}
 @media screen and (min-width: 768px) {
   .mv__text {
     margin-top: 16px;
+    line-height: 1.68;
   }
 }
 
@@ -368,7 +392,7 @@ body {
 .title::before {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: 0;
   left: calc(50% - 30px);
   width: 60px;
   height: 1px;
@@ -390,7 +414,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 80px;
+    gap: 42px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -398,7 +422,8 @@ body {
 }
 
 .concept__img img {
-  width: 680px;
+  width: 600px;
+  aspect-ratio: 600/400;
 }
 @media screen and (min-width: 768px) {
   .concept__img {
@@ -412,6 +437,7 @@ body {
 @media screen and (min-width: 768px) {
   .concept__content {
     width: 45%;
+    margin-top: 6px;
   }
 }
 
