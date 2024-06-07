@@ -27,6 +27,53 @@ body {
   }
 }
 
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include mixin.mq(pc) {
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: calc(config.$width-inner + 40px * 2);
+  }
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1; /* 40px */
+  text-align: center;
+  padding-bottom: 28px;
+
+  position: relative;
+  text-align: center;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 60px / 2);
+    width: 60px;
+    height: 1px;
+    // border-radius: 3px;
+    background: color.$main-blue;
+  }
+  @include mixin.mq(pc) {
+    font-size: 40px;
+    padding-bottom: 24px;
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   // bottom: -10px;
+    //   left: calc(50% - 60px / 2);
+    //   width: 60px;
+    //   height: 1px;
+    //   // border-radius: 3px;
+    //   background: color.$main-blue;
+    // }
+  }
+}
+
 /*----------------------------------
     header
 -----------------------------------*/
@@ -183,9 +230,14 @@ body {
 .mv__inner {
   padding-left: 15px;
   padding-right: 15px;
+
   @include mixin.mq(pc) {
     padding-left: 0;
     padding-right: 40px;
+    // margin-left: auto;
+    // margin-right: auto;
+    // right: 0;
+    // max-width: config.$width-inner;
   }
 }
 
@@ -197,7 +249,10 @@ body {
 
 .mv__picture {
   display: block;
-  text-align: right;
+  text-align: center;
+  @include mixin.mq(pc) {
+    text-align: right;
+  }
   img {
     width: 345px;
     aspect-ratio: 345 /414; //縦横比を設定
@@ -247,59 +302,14 @@ body {
 .concept__inner {
 }
 
-.inner {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  @include mixin.mq(pc) {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-
-.title {
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1; /* 40px */
-  text-align: center;
-  padding-bottom: 28px;
-
-  position: relative;
-  text-align: center;
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - 60px / 2);
-    width: 60px;
-    height: 1px;
-    // border-radius: 3px;
-    background: color.$main-blue;
-  }
-  @include mixin.mq(pc) {
-    font-size: 40px;
-    padding-bottom: 24px;
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   // bottom: -10px;
-    //   left: calc(50% - 60px / 2);
-    //   width: 60px;
-    //   height: 1px;
-    //   // border-radius: 3px;
-    //   background: color.$main-blue;
-    // }
-  }
-}
-
 .concept__wrapper {
   margin-top: 46px;
-
+  margin-left: auto;
+  margin-right: auto;
   @include mixin.mq(pc) {
     margin-top: 64px;
     display: flex;
-    gap: 42px;
+    // gap: 42px;
     align-items: center;
   }
 }
@@ -316,9 +326,11 @@ body {
 
 .concept__content {
   margin-top: 34px;
+  max-width: 600px;
   @include mixin.mq(pc) {
     width: 45%;
     margin-top: 6px;
+    padding-left: 20px;
   }
 }
 
@@ -331,9 +343,10 @@ body {
 
 .concept__text {
   margin-top: 22px;
+  line-height: 1.68;
   @include mixin.mq(pc) {
-    margin-top: 40px;
-    // line-height: 1.72;
+    margin-top: 39px;
+    // line-height: config.$line-height-base;
   }
 }
 
@@ -350,10 +363,18 @@ body {
 }
 
 .feature__cards {
-  margin-top: 46px;
+  margin-top: 45px;
+  // display: block;
+  // justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @include mixin.mq(pc) {
-    display: flex;
-    gap: 90px;
+    display: grid;
+    // gap: 90px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.625rem, -8.264rem + 18.52vw, 5.625rem);
+    margin-top: 66px;
   }
   // display: block;
   // gap: 50px;
@@ -362,16 +383,18 @@ body {
 .feature__card {
   background: #fff;
   box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
+  max-width: 345px;
 }
 
 .feature__card + .feature__card {
-  margin-top: 50px;
+  margin-top: 52px;
   @include mixin.mq(pc) {
     margin-top: 0;
   }
 }
 
 .feature__card-img {
+  text-align: center;
   img {
     height: 243.53px;
     align-self: stretch;
