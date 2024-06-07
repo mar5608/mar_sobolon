@@ -1,0 +1,316 @@
+@use "../setting/config";
+@use "../setting/color";
+@use "../mixin/mixin";
+
+/*----------------------------------
+    共通
+-----------------------------------*/
+
+body {
+  font-family: config.$font-family;
+  font-size: config.$font-size-base;
+  line-height: config.$line-height-base;
+  color: color.$base-black;
+  background: color.$base-white;
+  font-weight: 300;
+}
+
+.hidden-sp {
+  @include mixin.mq(sp) {
+    display: none;
+  }
+}
+
+.hidden-pc {
+  @include mixin.mq(pc) {
+    display: none;
+  }
+}
+
+/*----------------------------------
+    header
+-----------------------------------*/
+
+.header {
+  height: 60px;
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include mixin.mq(pc) {
+    max-width: calc(config.$width-inner + 40px * 2);
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.header__logo {
+  margin-top: 19px;
+  a {
+    img {
+      width: 120px;
+      display: block; //余計な隙間が出づらくなる
+      @include mixin.mq(pc) {
+        padding-top: 3px;
+      }
+    }
+  }
+  @include mixin.mq(pc) {
+    margin-top: 24px;
+  }
+}
+
+.header__nav {
+  display: none;
+  @include mixin.mq(pc) {
+    display: flex;
+    align-items: center;
+    gap: 46px;
+    margin-top: 22px;
+  }
+}
+
+.header__link {
+  transition: color 0.3s; /* hoverする前のクラスにつける*/
+
+  /* ホバー */
+  &:hover {
+    color: color.$main-blue;
+  }
+}
+
+//cssでは使わないみたいohaより
+// .header__open {
+// }
+
+.drawer-icon {
+  position: relative;
+  width: 30px;
+  height: 18px;
+  z-index: 51;
+  margin-top: 21px;
+  @include mixin.mq(pc) {
+    display: none;
+  }
+
+  &.is-checked {
+    .drawer-icon__bar {
+      &:nth-of-type(1) {
+        top: 10px;
+        transform: rotate(44.89deg);
+      }
+      &:nth-of-type(2) {
+        display: none;
+      }
+      &:nth-of-type(3) {
+        top: 10px;
+        transform: rotate(-44.904deg);
+      }
+    }
+  }
+}
+
+.drawer-icon__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: color.$main-blue;
+  transition: transform 0.3s linear, top 0.3x linear; //linear:一定速度
+
+  &:nth-of-type(1) {
+  }
+  &:nth-of-type(2) {
+    top: 6px;
+  }
+  &:nth-of-type(3) {
+    top: 12px;
+  }
+}
+
+.drawer-content {
+  width: 270px;
+  height: 100%;
+  position: fixed;
+  top: 60;
+  right: 0;
+  color: color.$base-white;
+  background: color.$main-blue;
+  z-index: 50;
+  padding-top: 40px;
+  padding-right: 15px;
+  transform: translateX(100%); //コンテンツ分が100%移動
+  transition: transform 0.3s linear;
+  &.is-checked {
+    transform: translateX(0);
+  }
+}
+
+.drawer-content__menu {
+  padding-top: calc(40px - 16px);
+}
+
+.drawer-content__link {
+  display: block;
+  font-size: 18px;
+  padding-bottom: 32px;
+  text-align: right;
+}
+
+/*----------------------------------
+    mv
+-----------------------------------*/
+.mv {
+  padding-bottom: 96px;
+  @include mixin.mq(pc) {
+    padding-bottom: 160px;
+  }
+}
+
+.mv__inner {
+  padding-left: 15px;
+  padding-right: 15px;
+  @include mixin.mq(pc) {
+    padding-left: 0;
+    padding-right: 40;
+  }
+}
+
+.mv__wrapper {
+  @include mixin.mq(pc) {
+    position: relative;
+  }
+}
+
+.mv__img {
+  img {
+    @include mixin.mq(pc) {
+      max-width: 990px;
+    }
+  }
+}
+
+.mv__content {
+  @include mixin.mq(pc) {
+    background: color.$base-white;
+    padding: 80px 40px;
+    width: 366px;
+    border: 1px solid red;
+    position: absolute;
+    top: 60px;
+  }
+}
+
+.mv__head {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.mv__text {
+  @include mixin.mq(pc) {
+    margin-top: 16px;
+  }
+}
+
+/*----------------------------------
+    concept
+-----------------------------------*/
+.concept__inner {
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include mixin.mq(pc) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1; /* 40px */
+  text-align: center;
+  padding-bottom: 28px;
+
+  position: relative;
+  text-align: center;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 60px / 2);
+    width: 60px;
+    height: 1px;
+    // border-radius: 3px;
+    background: color.$main-blue;
+  }
+  @include mixin.mq(pc) {
+    font-size: 40px;
+    padding-bottom: 24px;
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   // bottom: -10px;
+    //   left: calc(50% - 60px / 2);
+    //   width: 60px;
+    //   height: 1px;
+    //   // border-radius: 3px;
+    //   background: color.$main-blue;
+    // }
+  }
+}
+
+.concept__wrapper {
+  margin-top: 46px;
+
+  @include mixin.mq(pc) {
+    margin-top: 64px;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+  }
+}
+
+.concept__img {
+  img {
+    width: 680px;
+  }
+  @include mixin.mq(pc) {
+    width: 55%;
+  }
+}
+
+.concept__content {
+  margin-top: 34px;
+  @include mixin.mq(pc) {
+    width: 45%;
+  }
+}
+
+.concept__head {
+  p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.concept__text {
+  margin-top: 22px;
+  @include mixin.mq(pc) {
+    margin-top: 40px;
+  }
+}

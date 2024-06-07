@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sobolon | ハンドメイドアクセサリー</title>
+    <meta
+      name="description"
+      content="海洋マイクロプラスチックを素材とした
+    ハンドメイドアクセサリー「sobolon」"
+    />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="noindex" />
+    <!-- GoogleFonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- OGP設定 -->
+    <!-- <meta property="og:url" content=" ページのURL" />
+    <meta property="og:type" content=" ページの種類" />
+    <meta property="og:title" content=" ページのタイトル" />
+    <meta property="og:description" content=" ページの説明文" />
+    <meta property="og:site_name" content="サイト名" />
+    <meta property="og:image" content=" サムネイル画像のURL" /> -->
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__logo">
+          <a href=""><img src="./img/logo.png" alt="sobolon" /></a>
+        </h1>
+        <nav class="header__nav">
+          <a href="" class="header__link">Concept</a>
+          <a href="" class="header__link">Feature</a>
+          <a href="" class="header__link">Products</a>
+          <a href="" class="header__link">News</a>
+          <a href="" class="header__link">Contact</a>
+        </nav>
+        <!-- ハンバーガーメニュー -->
+        <button id="js-drawer-icon" class="header__open drawer-icon">
+          <span class="drawer-icon__bar"></span>
+          <span class="drawer-icon__bar"></span>
+          <span class="drawer-icon__bar"></span>
+        </button>
+      </div>
+    </header>
+    <!-- ドロワーの部分 -->
+    <div id="js-drawer-content" class="drawer-content">
+      <nav class="drawer-content__menu">
+        <a href="" class="drawer-content__link">Concept</a>
+        <a href="" class="drawer-content__link">Feature</a>
+        <a href="" class="drawer-content__link">Products</a>
+        <a href="" class="drawer-content__link">News</a>
+        <a href="" class="drawer-content__link">Contact</a>
+      </nav>
+    </div>
+
+    <div class="mv">
+      <div class="mv__inner">
+        <div class="mv__wrapper">
+          <!-- <div class="mv__img"><img src="./img/top.png" alt="" /></div> -->
+          <picture class="mv__picture">
+            <!-- 画面幅の最小値まではsrcsetの画像を表示する 768px=タブレットまではsrcsetの画像PC版を表示する-->
+            <source media="(min-width: 768px)" srcset="./img/top.png" />
+            <img
+              src="./img/top_sp.png"
+              alt="海洋マイクロプラスチックを素材とした ハンドメイドアクセサリー「sobolon」と女性"
+            />
+          </picture>
+          <div class="mv__content">
+            <div class="mv__head">
+              “可愛い” で<br class="hidden-sp" />地球を守る！
+            </div>
+            <div class="mv__text">
+              <span>海洋マイクロプラスチックを素材とした</span>
+              <span>ハンドメイドアクセサリー「sobolon」</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="concept">
+      <div class="concept__inner inner">
+        <h2 class="title">Concept</h2>
+        <div class="concept__wrapper">
+          <div class="concept__img">
+            <img src="./img/concept-1.png" alt="" />
+          </div>
+          <div class="concept__content">
+            <div class="concept__head">
+              <p>可愛くてステキなのは当たり前。</p>
+              <p>地球にやさしくあるのも当たり前。</p>
+            </div>
+            <div class="concept__text">
+              「sobolon」は、海洋汚染の要因であるマイクロプラスチックを回収し、それらを素材としたハンドメイドアクセサリーを製作しているブランドです。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="service">
+      <div class="inner"></div>
+    </section>
+    <section class="feature">
+      <div class="inner"></div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
