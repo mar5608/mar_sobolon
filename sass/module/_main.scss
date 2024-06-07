@@ -336,3 +336,55 @@ body {
     // line-height: 1.72;
   }
 }
+
+/*----------------------------------
+    feature
+-----------------------------------*/
+.feature {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  @include mixin.mq(pc) {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+}
+
+.feature__cards {
+  margin-top: 46px;
+  @include mixin.mq(pc) {
+    display: flex;
+    gap: 90px;
+  }
+  // display: block;
+  // gap: 50px;
+}
+
+.feature__card {
+  background: #fff;
+  box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
+}
+
+.feature__card + .feature__card {
+  margin-top: 50px;
+  @include mixin.mq(pc) {
+    margin-top: 0;
+  }
+}
+
+.feature__card-img {
+  img {
+    height: 243.53px;
+    align-self: stretch;
+    @include mixin.mq(pc) {
+      aspect-ratio: 340/240; /* 画像の比率 width / height */
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+}
+
+.feature__card-text {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
