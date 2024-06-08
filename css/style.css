@@ -324,15 +324,6 @@ body {
 /*----------------------------------
     mv
 -----------------------------------*/
-.mv {
-  padding-bottom: 96px;
-}
-@media screen and (min-width: 768px) {
-  .mv {
-    padding-bottom: 160px;
-  }
-}
-
 .mv__inner {
   padding-left: 15px;
   padding-right: 15px;
@@ -411,6 +402,15 @@ body {
 /*----------------------------------
     concept
 -----------------------------------*/
+.concept {
+  padding-top: 96px;
+}
+@media screen and (min-width: 768px) {
+  .concept {
+    padding-top: 160px;
+  }
+}
+
 .concept__wrapper {
   margin-top: 46px;
   margin-left: auto;
@@ -470,12 +470,10 @@ body {
 -----------------------------------*/
 .feature {
   padding-top: 96px;
-  padding-bottom: 96px;
 }
 @media screen and (min-width: 768px) {
   .feature {
     padding-top: 160px;
-    padding-bottom: 160px;
   }
 }
 
@@ -545,8 +543,7 @@ body {
 -----------------------------------*/
 .question {
   position: relative;
-  background: url("../../img/question-bg_sp.png") no-repeat center center/contain;
-  height: 490px;
+  margin-top: 96px;
 }
 .question::before {
   position: absolute;
@@ -557,18 +554,45 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.12);
 }
+@media screen and (min-width: 768px) {
+  .question {
+    margin-top: 160px;
+  }
+}
+.question img {
+  width: 100%;
+}
 
 .question__contents {
+  position: absolute;
+  top: 0;
+  left: 0;
   color: #fff;
   padding: 180px 20px 50px 15px;
+}
+@media screen and (min-width: 768px) {
+  .question__contents {
+    max-width: 1200px;
+    padding: clamp(2.5rem, -6.722rem + 19.21vw, 7.688rem) 10px 122px 40px;
+  }
 }
 
 .question__head {
   font-size: 20px;
   font-weight: 600;
 }
+.question__head span {
+  display: block;
+  font-size: 22px;
+}
 
 .question__message {
+  margin-top: 24px;
   font-size: 14px;
   font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .question__message {
+    font-size: 16px;
+  }
 }

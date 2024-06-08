@@ -140,7 +140,15 @@
       </div>
     </section>
     <div class="question">
-      <div class="inner">
+      <div class="question__inner">
+        <picture class="question__picture">
+          <!-- 画面幅の最小値まではsrcsetの画像を表示する 768px=タブレットまではsrcsetの画像PC版を表示する-->
+          <source media="(min-width: 768px)" srcset="./img/question-bg.png" />
+          <img
+            src="./img/question-bg_sp.png"
+            alt="海洋マイクロプラスチックを素材とした ハンドメイドアクセサリー「sobolon」と女性"
+          />
+        </picture>
         <div class="question__contents">
           <div class="question__head">
             <span>消費者である私たちが、</span>
@@ -150,8 +158,10 @@
             そんな視点からこのブランドは生まれました。<br />
             オシャレを楽しむ気持ちを大切にしながらも、<br />
             ただ可愛いだけじゃない環境にやさしいアクセサリーを選ぶ人が増えていったら…<br />
-            その変化は少しずつ、だけども本質的に、<br />
-            この世界をHappyに変えていくのだと、私たちは考えます。
+            その変化は少しずつ、だけども本質的に、<br class="hidden-pc"/>
+            この世界をHappyに変えていくのだと、<br
+              class="hidden-sp"
+            />私たちは考えます。
           </div>
         </div>
       </div>
