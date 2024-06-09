@@ -150,6 +150,15 @@ body {
   padding-bottom: 28px;
   position: relative;
   text-align: center;
+  /* 回答
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+    @include mixin.mq(pc) {
+    gap: 24px;
+  }
+  */
 }
 .title::before {
   content: "";
@@ -165,6 +174,24 @@ body {
     font-size: 40px;
     padding-bottom: 24px;
   }
+}
+
+.button {
+  color: #3EA1D1;
+  border: 1px solid #3EA1D1;
+  background: #fff;
+  width: 158px;
+  padding: 11px 3px;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s; /* hoverする前のクラスにつける*/
+  /* ホバー */
+}
+.button:hover {
+  background-color: #3EA1D1;
+  color: #fff;
 }
 
 /*----------------------------------
@@ -190,6 +217,7 @@ body {
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+  height: inherit;
 }
 @media screen and (min-width: 768px) {
   .header__inner {
@@ -205,6 +233,7 @@ body {
   transition: opacity 0.3s;
 }
 .header__logo a img {
+  /*1.widthを指定 2.display:blockを指定する*/
   width: 120px;
   display: block;
 }
@@ -233,8 +262,10 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     gap: 46px;
-    margin-top: 22px;
   }
 }
 
@@ -285,6 +316,9 @@ body {
   transition: transform 0.3s linear, top 0.3x linear;
   transition: transform 0.3s linear, top 0.3x linear, -webkit-transform 0.3s linear;
 }
+.drawer-icon__bar:nth-of-type(1) {
+  top: 0;
+}
 .drawer-icon__bar:nth-of-type(2) {
   top: 8px;
 }
@@ -294,14 +328,14 @@ body {
 
 .drawer-content {
   width: 270px;
-  height: 100%;
+  height: calc(100% - 60px);
   position: fixed;
   top: 60;
   right: 0;
   color: #fff;
   background: #3EA1D1;
   z-index: 50;
-  padding-top: 40px;
+  padding-top: 32px;
   padding-right: 15px;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
@@ -316,7 +350,7 @@ body {
 }
 
 .drawer-content__menu {
-  padding-top: 24px;
+  padding-top: 8px;
 }
 
 .drawer-content__link {
@@ -330,8 +364,7 @@ body {
     mv
 -----------------------------------*/
 .mv__inner {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-inline: 15px;
 }
 @media screen and (min-width: 768px) {
   .mv__inner {
@@ -693,31 +726,6 @@ body {
   }
 }
 
-.button {
-  color: #3EA1D1;
-  border: 1px solid #3EA1D1;
-  background: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 158px;
-  padding: 11px 3px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 14px;
-  -webkit-transition: background-color 0.3s, color 0.3s;
-  transition: background-color 0.3s, color 0.3s; /* hoverする前のクラスにつける*/
-  /* ホバー */
-}
-.button:hover {
-  background-color: #3EA1D1;
-  color: #fff;
-}
-
 /*----------------------------------
     news
 -----------------------------------*/
@@ -943,7 +951,9 @@ body {
     contact
 -----------------------------------*/
 .contact {
-  padding-top: 96px;
+  margin-top: 96px;
+  padding-top: 48px;
+  padding-bottom: 56px;
   background: url("../../img/contact-bg_sp.png") no-repeat center center/contain;
 }
 @media screen and (min-width: 768px) {
@@ -1022,6 +1032,13 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .form-field__head::before {
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border: 1px solid #fff;
   }
 }
 
