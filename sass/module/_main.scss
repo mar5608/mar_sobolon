@@ -342,6 +342,9 @@ body {
   p {
     font-size: 20px;
     font-weight: 600;
+    @include mixin.mq(pc) {
+      font-size: clamp(1.125rem, 0.903rem + 0.46vw, 1.25rem); //18->20px
+    }
   }
 }
 
@@ -490,3 +493,271 @@ body {
     font-size: 16px;
   }
 }
+
+/*----------------------------------
+    products
+-----------------------------------*/
+.products {
+  padding-top: 96px;
+  @include mixin.mq(pc) {
+    padding-top: 160px;
+  }
+}
+
+.products__inner {
+  padding-left: 56px;
+  padding-right: 56px;
+  @include mixin.mq(pc) {
+    // padding-left: 0;
+    // padding-right: 0;
+    // display: flex;
+    // margin-left: auto;
+    // margin-right: auto;
+    // max-width: config.$width-inner;
+  }
+}
+
+.products__lists {
+  margin-top: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 41px;
+
+  @include mixin.mq(pc) {
+    margin-top: 66px;
+    flex-direction: row;
+    // gap: 80px; //
+    gap: clamp(1.25rem, -5.417rem + 13.89vw, 5rem); //20->80
+  }
+}
+
+.products__list {
+}
+
+.products-link {
+  width: 263px;
+  @include mixin.mq(pc) {
+    width: 260px;
+  }
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+  img {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.products__link-meta {
+  font-size: 14px;
+}
+
+.products__link-title {
+  margin-top: 20px;
+}
+
+.products__link-price {
+  color: #989898;
+  margin-top: 10px;
+}
+
+.products__button {
+  margin-top: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mixin.mq(pc) {
+    margin-top: 44px;
+  }
+}
+
+.button {
+  color: color.$main-blue;
+  border: 1px solid color.$main-blue;
+  background: color.$base-white;
+  display: flex;
+  width: 158px;
+  padding: calc(12px - 1px) calc(4px - 1px);
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+/*----------------------------------
+    news
+-----------------------------------*/
+
+.news {
+  padding-top: 96px;
+  @include mixin.mq(pc) {
+    padding-top: 160px;
+  }
+}
+
+.inner {
+}
+
+.news__inner {
+  @include mixin.mq(pc) {
+    max-width: 1120px; //なぜ？
+  }
+}
+
+.title {
+}
+
+.news__card {
+}
+
+.news__title {
+}
+
+.news__lists {
+  margin-top: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 26px;
+  @include mixin.mq(pc) {
+    margin-top: 64px;
+    gap: 20px;
+  }
+}
+
+.news__list {
+  display: block;
+  width: 345px;
+  padding-bottom: calc(28px - 1px);
+  border-bottom: 1px solid #e0e0e0;
+  @include mixin.mq(pc) {
+    width: 100%;
+    padding-bottom: calc(25px - 1px);
+  }
+  // //２番目以降の指定nth-childで指定
+  // &:nth-child(n + 2) {
+  //   margin-top: 28px;
+  // }
+  // position: relative;
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 1px;
+  //   top: 0;
+  //   left: 0;
+  //   background: #e0e0e0;
+  // }
+}
+
+.news__link-img {
+  height: 212.31px;
+  width: 345px;
+  flex-shrink: 0; //幅を縮めないでください。0ならwidth幅を担保する
+  @include mixin.mq(pc) {
+    // width: 260px;
+    width: 260px;
+    height: 100%;
+    margin-top: 2px;
+  }
+  img {
+    aspect-ratio: 260 /160;
+    object-fit: cover;
+    @include mixin.mq(pc) {
+      aspect-ratio: 260 /160;
+    }
+  }
+}
+.news-link {
+  @include mixin.mq(pc) {
+    display: flex;
+    gap: 40px;
+  }
+}
+
+.news__link-meta {
+  margin-top: 16px;
+  flex-grow: 1; /**/
+  @include mixin.mq(pc) {
+    margin-top: 0;
+  }
+}
+
+.news__link-date {
+  font-size: 14px;
+}
+
+.news__link-title {
+  font-weight: 600;
+  margin-top: 8px;
+  @include mixin.mq(pc) {
+    margin-top: 14px;
+    font-size: 18px;
+    // letter-spacing: 0.01em;
+  }
+}
+
+.news__link-text {
+  color: #888;
+  font-size: 14px;
+  margin-top: 14px;
+  @include mixin.mq(pc) {
+    margin-top: 10px;
+    letter-spacing: -0.0025em;
+  }
+}
+.news__button {
+  margin-top: 42px;
+  // text-align: center; //親要素に中央寄せをかく
+  // display: block;
+  // margin-left: auto;
+  // margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mixin.mq(pc) {
+    margin-top: 44px;
+    font-size: 14px;
+  }
+}
+
+/*----------------------------------
+    sample
+-----------------------------------*/
+
+// .ex__card {
+//   margin-left: auto;
+//   margin-right: auto;
+//   margin-bottom: 20px;
+// }
+
+// .ex__card-link,
+// .ex__card > a {
+//   display: block;
+//   height: 100%;
+//   &:hover {
+//     opacity: 0.6;
+//   }
+// }
+
+// .ex__card-img {
+//   width: auto;
+//   margin-left: auto;
+//   margin-right: auto;
+//   text-align: center;
+//   img {
+//     width: 100%;
+//     height: auto;
+//     aspect-ratio: attr(width) / attr(height);
+//   }
+// }
+
+// .ex__card-body {
+// }
+
+// .ex__card-title {
+// }
+
+// .ex__card-text {
+// }
