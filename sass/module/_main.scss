@@ -105,6 +105,7 @@ body {
 
 .header__logo {
   padding-top: 19px;
+  transition: opacity 0.3s;
   a {
     img {
       width: 120px;
@@ -116,6 +117,9 @@ body {
   }
   @include mixin.mq(pc) {
     padding-top: 20px;
+  }
+  &:hover {
+    opacity: 0.6;
   }
 }
 
@@ -546,6 +550,11 @@ body {
   img {
     aspect-ratio: 1 / 1;
   }
+  &:hover {
+    // img {
+    //   width: 120%;
+    // }
+  }
 }
 
 .products__link-meta {
@@ -582,6 +591,13 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  transition: background-color 0.3s, color 0.3s; /* hoverする前のクラスにつける*/
+
+  /* ホバー */
+  &:hover {
+    background-color: color.$main-blue;
+    color: color.$base-white;
+  }
 }
 
 /*----------------------------------
@@ -707,6 +723,7 @@ body {
     letter-spacing: -0.0025em;
   }
 }
+
 .news__button {
   margin-top: 42px;
   // text-align: center; //親要素に中央寄せをかく
@@ -720,6 +737,339 @@ body {
     margin-top: 44px;
     font-size: 14px;
   }
+}
+
+/*----------------------------------
+    motto
+-----------------------------------*/
+.motto {
+  padding-top: 96px;
+  @include mixin.mq(pc) {
+    padding-top: 160px;
+  }
+}
+
+.motto__wrapper {
+  // margin-top: 46px;
+  margin-left: auto;
+  margin-right: auto;
+  @include mixin.mq(pc) {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse; //横向き
+  }
+}
+
+.motto__img {
+  img {
+    width: 600px;
+    aspect-ratio: 600 /400; //縦横比を設定
+  }
+  @include mixin.mq(pc) {
+    width: 50%;
+  }
+}
+
+.motto__content {
+  margin-top: 34px;
+  max-width: 600px;
+  @include mixin.mq(pc) {
+    width: 50%;
+    margin-top: 1px;
+    // padding-left: 20px;
+    padding-right: 80px;
+  }
+}
+
+.motto__head {
+  p {
+    font-size: 20px;
+    font-weight: 600;
+    @include mixin.mq(pc) {
+      font-size: 28px;
+      // font-size: clamp(1.125rem, 0.903rem + 0.46vw, 1.25rem); //18->20px
+    }
+  }
+}
+
+.motto__text {
+  font-size: 14px;
+  margin-top: 22px;
+  letter-spacing: 0.005em;
+  @include mixin.mq(pc) {
+    font-size: 16px;
+    margin-top: 40px;
+  }
+}
+
+/*----------------------------------
+    contact
+-----------------------------------*/
+.contact {
+  padding-top: 96px;
+  background: url("../../img/contact-bg_sp.png") no-repeat center center /
+    contain;
+  @include mixin.mq(pc) {
+    margin-top: 160px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: url("../../img/contact_bg.png") no-repeat center center /
+      contain;
+  }
+}
+.title__contact {
+  color: color.$main-blue;
+}
+
+.required {
+  color: #e7728e;
+}
+
+.contact__head {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 46px;
+}
+
+.contact__form {
+  margin-top: 28px;
+  @include mixin.mq(pc) {
+    margin-top: 19px;
+    max-width: 510px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.contact__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; //縦並びのflexで縦の余白はgapで設定
+}
+
+.contact__field {
+}
+
+.form-field {
+  @include mixin.mq(pc) {
+    display: flex; //横並び
+    gap: 10px; //フォームの左の余白
+  }
+}
+
+.form-field__head {
+  color: color.$base-white;
+  background: color.$main-blue;
+  display: inline-block;
+  gap: 10px;
+  padding: 4px 16px;
+  @include mixin.mq(pc) {
+    width: 180px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  }
+}
+
+.form-field__label {
+  @include mixin.mq(pc) {
+  }
+}
+
+.form-field__item {
+  flex-grow: 1; //残りの幅全てに当てててください
+  margin-top: 3px;
+
+  @include mixin.mq(pc) {
+    width: 320px;
+    margin-top: 0;
+  }
+}
+
+.form-text {
+  border: 1px solid #fff;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  box-shadow: 5px 6px 16px 0px rgba(96, 96, 96, 0.16);
+  transition: border-color 0.3s;
+  &:hover,
+  &:focus {
+    border-color: color.$main-blue;
+    outline: none; /* デフォルトの青いラインを消す */
+  }
+}
+
+.form-filed__radios {
+}
+
+.form-field__radio {
+}
+
+.form-radio {
+}
+
+.form-radio__input {
+}
+
+.form-radio__text {
+  position: relative;
+
+  //form-field_radio-textを起点にして擬似要素を作っていく
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    // border-radius: 50%;
+  }
+  &::before {
+    width: 24px;
+    height: 24px;
+    border: 1px solid color.$base-white;
+    background: color.$base-white;
+    width: 80px;
+    height: 42px;
+    // left: 0;
+    transition: border-color 0.3s; /*hover時 ○はbeforeで作成されているのでここ*/
+  }
+
+  //after 中のオレンジの丸
+  &::after {
+    width: 78px;
+    height: 40px;
+    background: color.$main-blue;
+    left: 1px;
+    opacity: 1; //0にかえる
+  }
+}
+
+.form-textarea {
+  border: 1px solid #fff;
+  width: 100%;
+  height: 122px;
+  background: #fff;
+  box-shadow: 5px 6px 16px 0px rgba(96, 96, 96, 0.16);
+  &:hover,
+  &:focus {
+    border-color: color.$main-blue;
+    outline: none; /* デフォルトの青いラインを消す */
+  }
+}
+
+.contact__privacy {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-checkbox {
+}
+
+.form-checkbox__input {
+}
+
+.form-checkbox__text {
+  a {
+    border-bottom: 1px solid color.$main-blue;
+    color: color.$main-blue;
+  }
+}
+
+.contact__button {
+  display: flex;
+  justify-content: center;
+  margin-top: 23px;
+}
+
+/*----------------------------------
+    footer
+-----------------------------------*/
+.footer {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  background: #f7f7f7;
+}
+
+.footer__inner {
+}
+
+.footer__content {
+}
+.footer__logo {
+  margin: 0 auto;
+
+  width: 120px;
+  transition: opacity 0.3s;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.footer__link {
+  margin-top: 22px;
+
+  a {
+    display: block;
+    text-align: center;
+    @include mixin.mq(pc) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.footer__nav-list {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 18px;
+}
+
+.footer__privacy {
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.footer__legal {
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.footer__nav-link {
+  width: 21px;
+  height: 21px;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.footer__copyright-content {
+  margin-top: 24px;
+  color: #888888;
+  text-align: center;
 }
 
 /*----------------------------------
