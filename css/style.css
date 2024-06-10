@@ -360,6 +360,16 @@ body {
   text-align: right;
 }
 
+.main {
+  display: grid;
+  gap: 96px;
+}
+@media screen and (min-width: 768px) {
+  .main {
+    gap: 160px;
+  }
+}
+
 /*----------------------------------
     mv
 -----------------------------------*/
@@ -440,15 +450,6 @@ body {
 /*----------------------------------
     concept
 -----------------------------------*/
-.concept {
-  padding-top: 96px;
-}
-@media screen and (min-width: 768px) {
-  .concept {
-    padding-top: 160px;
-  }
-}
-
 .concept__wrapper {
   margin-top: 46px;
   margin-left: auto;
@@ -511,15 +512,6 @@ body {
 /*----------------------------------
     feature
 -----------------------------------*/
-.feature {
-  padding-top: 96px;
-}
-@media screen and (min-width: 768px) {
-  .feature {
-    padding-top: 160px;
-  }
-}
-
 .feature__cards {
   margin-top: 45px;
   display: -webkit-box;
@@ -586,7 +578,6 @@ body {
 -----------------------------------*/
 .question {
   position: relative;
-  margin-top: 96px;
 }
 .question::before {
   position: absolute;
@@ -596,11 +587,6 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.12);
-}
-@media screen and (min-width: 768px) {
-  .question {
-    margin-top: 160px;
-  }
 }
 .question img {
   width: 100%;
@@ -643,15 +629,6 @@ body {
 /*----------------------------------
     products
 -----------------------------------*/
-.products {
-  padding-top: 96px;
-}
-@media screen and (min-width: 768px) {
-  .products {
-    padding-top: 160px;
-  }
-}
-
 .products__inner {
   padding-left: 56px;
   padding-right: 56px;
@@ -729,15 +706,6 @@ body {
 /*----------------------------------
     news
 -----------------------------------*/
-.news {
-  padding-top: 96px;
-}
-@media screen and (min-width: 768px) {
-  .news {
-    padding-top: 160px;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .news__inner {
     max-width: 1120px;
@@ -875,15 +843,6 @@ body {
 /*----------------------------------
     motto
 -----------------------------------*/
-.motto {
-  padding-top: 96px;
-}
-@media screen and (min-width: 768px) {
-  .motto {
-    padding-top: 160px;
-  }
-}
-
 .motto__wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -951,14 +910,12 @@ body {
     contact
 -----------------------------------*/
 .contact {
-  margin-top: 96px;
   padding-top: 48px;
   padding-bottom: 56px;
   background: url("../../img/contact-bg_sp.png") no-repeat center center/contain;
 }
 @media screen and (min-width: 768px) {
   .contact {
-    margin-top: 160px;
     padding-top: 80px;
     padding-bottom: 80px;
     background: url("../../img/contact_bg.png") no-repeat center center/contain;

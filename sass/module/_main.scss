@@ -264,14 +264,17 @@ body {
   text-align: right;
 }
 
+.main {
+  display: grid;
+  gap: 96px;
+  @include mixin.mq(pc) {
+    gap: 160px;
+  }
+}
 /*----------------------------------
     mv
 -----------------------------------*/
 .mv {
-  // padding-bottom: 96px;
-  // @include mixin.mq(pc) {
-  //   padding-bottom: 160px;
-  // }
 }
 
 .mv__inner {
@@ -349,10 +352,10 @@ body {
     concept
 -----------------------------------*/
 .concept {
-  padding-top: 96px;
-  @include mixin.mq(pc) {
-    padding-top: 160px;
-  }
+  // padding-top: 96px;
+  // @include mixin.mq(pc) {
+  //   padding-top: 160px;
+  // }
 }
 
 .concept__wrapper {
@@ -410,10 +413,10 @@ body {
     feature
 -----------------------------------*/
 .feature {
-  padding-top: 96px;
-  @include mixin.mq(pc) {
-    padding-top: 160px;
-  }
+  // padding-top: 96px;
+  // @include mixin.mq(pc) {
+  //   padding-top: 160px;
+  // }
 }
 
 .feature__cards {
@@ -488,7 +491,7 @@ body {
 // }
 .question {
   position: relative;
-  margin-top: 96px;
+  // margin-top: 96px;
 
   &::before {
     position: absolute;
@@ -500,7 +503,7 @@ body {
     background: rgba(0, 0, 0, 0.12);
   }
   @include mixin.mq(pc) {
-    margin-top: 160px;
+    // margin-top: 160px;
   }
   img {
     width: 100%;
@@ -547,10 +550,10 @@ body {
     products
 -----------------------------------*/
 .products {
-  padding-top: 96px;
-  @include mixin.mq(pc) {
-    padding-top: 160px;
-  }
+  // padding-top: 96px;
+  // @include mixin.mq(pc) {
+  //   padding-top: 160px;
+  // }
 }
 
 .products__inner {
@@ -631,10 +634,10 @@ body {
 -----------------------------------*/
 
 .news {
-  padding-top: 96px;
-  @include mixin.mq(pc) {
-    padding-top: 160px;
-  }
+  // padding-top: 96px;
+  // @include mixin.mq(pc) {
+  //   padding-top: 160px;
+  // }
 }
 
 .inner {
@@ -769,10 +772,10 @@ body {
     motto
 -----------------------------------*/
 .motto {
-  padding-top: 96px;
-  @include mixin.mq(pc) {
-    padding-top: 160px;
-  }
+  // padding-top: 96px;
+  // @include mixin.mq(pc) {
+  //   padding-top: 160px;
+  // }
 }
 
 .motto__wrapper {
@@ -832,13 +835,13 @@ body {
     contact
 -----------------------------------*/
 .contact {
-  margin-top: 96px;
+  // margin-top: 96px;
   padding-top: 48px;
   padding-bottom: 56px;
   background: url("../../img/contact-bg_sp.png") no-repeat center center /
     contain;
   @include mixin.mq(pc) {
-    margin-top: 160px;
+    // margin-top: 160px;
     padding-top: 80px;
     padding-bottom: 80px;
     background: url("../../img/contact_bg.png") no-repeat center center /
