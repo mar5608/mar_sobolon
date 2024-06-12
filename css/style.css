@@ -131,13 +131,11 @@ body {
 .inner {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-inline: 15px;
 }
 @media screen and (min-width: 768px) {
   .inner {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-inline: 40px;
     max-width: 1280px;
   }
 }
@@ -192,6 +190,25 @@ body {
 .button:hover {
   background-color: #3EA1D1;
   color: #fff;
+}
+
+.main {
+  display: grid;
+  gap: 96px;
+}
+@media screen and (min-width: 768px) {
+  .main {
+    gap: 160px;
+  }
+}
+
+.section__content {
+  margin-top: 46px;
+}
+@media screen and (min-width: 768px) {
+  .section__content {
+    margin-top: 64px;
+  }
 }
 
 /*----------------------------------
@@ -360,16 +377,6 @@ body {
   text-align: right;
 }
 
-.main {
-  display: grid;
-  gap: 96px;
-}
-@media screen and (min-width: 768px) {
-  .main {
-    gap: 160px;
-  }
-}
-
 /*----------------------------------
     mv
 -----------------------------------*/
@@ -451,19 +458,26 @@ body {
     concept
 -----------------------------------*/
 .concept__wrapper {
-  margin-top: 46px;
   margin-left: auto;
   margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 @media screen and (min-width: 768px) {
   .concept__wrapper {
-    margin-top: 64px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    gap: 6.6666666667%;
   }
 }
 
@@ -473,7 +487,9 @@ body {
 }
 @media screen and (min-width: 768px) {
   .concept__img {
-    width: 55%;
+    width: 50%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
   }
 }
 
@@ -483,9 +499,10 @@ body {
 }
 @media screen and (min-width: 768px) {
   .concept__content {
-    width: 45%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
     margin-top: 6px;
-    padding-left: 20px;
   }
 }
 
@@ -513,7 +530,6 @@ body {
     feature
 -----------------------------------*/
 .feature__cards {
-  margin-top: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -524,13 +540,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 52px;
 }
 @media screen and (min-width: 768px) {
   .feature__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(0.625rem, -8.264rem + 18.52vw, 5.625rem);
-    margin-top: 66px;
   }
 }
 
@@ -539,15 +555,7 @@ body {
   -webkit-box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
           box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
   max-width: 345px;
-}
-
-.feature__card + .feature__card {
-  margin-top: 52px;
-}
-@media screen and (min-width: 768px) {
-  .feature__card + .feature__card {
-    margin-top: 0;
-  }
+  height: auto;
 }
 
 .feature__card-img {
@@ -564,22 +572,26 @@ body {
     -o-object-fit: cover;
        object-fit: cover;
     height: 100%;
+    /*回答
+    width:100%;
+    */
   }
 }
 
 .feature__card-text {
   text-align: center;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
 /*----------------------------------
     question
 -----------------------------------*/
+/* 回答*/
 .question {
   position: relative;
 }
-.question::before {
+.question::after {
   position: absolute;
   content: "";
   left: 0;
@@ -587,6 +599,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.12);
+  z-index: 1;
 }
 .question img {
   width: 100%;
@@ -598,11 +611,13 @@ body {
   left: 0;
   color: #fff;
   padding: 180px 20px 50px 15px;
+  z-index: 2;
 }
 @media screen and (min-width: 768px) {
   .question__contents {
-    max-width: 1200px;
-    padding: clamp(2.5rem, -6.722rem + 19.21vw, 7.688rem) 10px 122px 40px;
+    width: 50%;
+    padding: 58px 0px 122px 40px;
+    line-height: 1.68;
   }
 }
 
@@ -630,11 +645,16 @@ body {
     products
 -----------------------------------*/
 .products__inner {
-  padding-left: 56px;
-  padding-right: 56px;
+  padding-inline: 56px;
 }
+@media screen and (min-width: 768px) {
+  .products__inner {
+    padding-inline: 40px;
+    max-width: 1020px;
+  }
+}
+
 .products__lists {
-  margin-top: 46px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -652,12 +672,11 @@ body {
 }
 @media screen and (min-width: 768px) {
   .products__lists {
-    margin-top: 66px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    gap: clamp(1.25rem, -5.417rem + 13.89vw, 5rem);
+    gap: clamp(1rem, -6.111rem + 14.81vw, 5rem);
   }
 }
 
@@ -666,7 +685,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .products-link {
-    width: 260px;
+    width: clamp(12.5rem, 5.5rem + 14.58vw, 16.438rem);
   }
 }
 .products-link img {
@@ -760,6 +779,8 @@ body {
     width: 260px;
     height: 100%;
     margin-top: 2px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
   }
 }
 .news__link-img img {
@@ -778,6 +799,9 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     gap: 40px;
   }
 }
@@ -843,9 +867,22 @@ body {
 /*----------------------------------
     motto
 -----------------------------------*/
+@media screen and (min-width: 768px) {
+  .motto {
+    margin-top: -66px;
+  }
+}
+
 .motto__wrapper {
   margin-left: auto;
   margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 @media screen and (min-width: 768px) {
   .motto__wrapper {
@@ -859,9 +896,13 @@ body {
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
+    gap: clamp(1.25rem, -5.417rem + 13.89vw, 5rem);
   }
 }
 
+.motto__img {
+  text-align: center;
+}
 .motto__img img {
   width: 600px;
   aspect-ratio: 600/400;
@@ -869,18 +910,20 @@ body {
 @media screen and (min-width: 768px) {
   .motto__img {
     width: 50%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
   }
 }
 
 .motto__content {
-  margin-top: 34px;
   max-width: 600px;
 }
 @media screen and (min-width: 768px) {
   .motto__content {
-    width: 50%;
-    margin-top: 1px;
-    padding-right: 80px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin-top: 6px;
   }
 }
 
@@ -890,7 +933,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .motto__head p {
-    font-size: 28px;
+    font-size: clamp(1.25rem, 0.361rem + 1.85vw, 1.75rem);
   }
 }
 
@@ -901,8 +944,8 @@ body {
 }
 @media screen and (min-width: 768px) {
   .motto__text {
-    font-size: 16px;
-    margin-top: 40px;
+    font-size: clamp(0.875rem, 0.653rem + 0.46vw, 1rem);
+    margin-top: 36px;
   }
 }
 
@@ -910,31 +953,28 @@ body {
     contact
 -----------------------------------*/
 .contact {
-  padding-top: 48px;
-  padding-bottom: 56px;
+  padding-block: 56px;
   background: url("../../img/contact-bg_sp.png") no-repeat center center/contain;
 }
 @media screen and (min-width: 768px) {
   .contact {
-    padding-top: 80px;
-    padding-bottom: 80px;
-    background: url("../../img/contact_bg.png") no-repeat center center/contain;
+    padding-block: 80px;
+    background: url("../../img/contact_bg.png") no-repeat center center/cover;
   }
 }
 
-.title__contact {
+.contact__title {
   color: #3EA1D1;
-}
-
-.required {
-  color: #e7728e;
 }
 
 .contact__head {
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  margin-top: 46px;
+  margin-top: 64px;
+}
+.contact__head .is-required {
+  color: #e7728e;
 }
 
 .contact__form {
@@ -950,6 +990,7 @@ body {
 }
 
 .contact__fields {
+  margin-top: 28px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -958,6 +999,11 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 32px;
+}
+@media screen and (min-width: 768px) {
+  .contact__fields {
+    margin-top: 20px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -968,13 +1014,21 @@ body {
     gap: 10px;
   }
 }
+.form-field .is-required {
+  color: #e7728e;
+}
 
 .form-field__head {
   color: #fff;
   background: #3EA1D1;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   gap: 10px;
   padding: 4px 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 @media screen and (min-width: 768px) {
   .form-field__head {
@@ -1013,7 +1067,7 @@ body {
 }
 
 .form-text {
-  border: 1px solid #fff;
+  border: none;
   width: 100%;
   height: 40px;
   background: #fff;
@@ -1027,64 +1081,111 @@ body {
   outline: none; /* デフォルトの青いラインを消す */
 }
 
-.form-radio__text {
+.form-filed__radios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-radio {
   position: relative;
 }
-.form-radio__text::before, .form-radio__text::after {
-  content: "";
+
+.form-radio__input {
+  /*選択はできるけど見えない位置へ*/
+  width: 1px;
+  height: 1px;
   position: absolute;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  /*チェックされた時のテキストをどうするか*/
 }
-.form-radio__text::before {
-  width: 24px;
-  height: 24px;
+.form-radio__input:checked + .form-radio__text {
+  background-color: #3EA1D1;
+  color: #fff;
+}
+
+.form-radio__text {
+  font-size: 16px;
+  letter-spacing: 0.026px;
+  color: #3EA1D1;
   border: 1px solid #fff;
   background: #fff;
+  position: relative;
   width: 80px;
-  height: 42px;
-  -webkit-transition: border-color 0.3s;
-  transition: border-color 0.3s; /*hover時 ○はbeforeで作成されているのでここ*/
-}
-.form-radio__text::after {
-  width: 78px;
   height: 40px;
-  background: #3EA1D1;
-  left: 1px;
-  opacity: 1;
+  display: grid;
+  place-items: center;
 }
 
 .form-textarea {
-  border: 1px solid #fff;
+  border: none;
   width: 100%;
   height: 122px;
   background: #fff;
   -webkit-box-shadow: 5px 6px 16px 0px rgba(96, 96, 96, 0.16);
           box-shadow: 5px 6px 16px 0px rgba(96, 96, 96, 0.16);
+  font-size: 16px;
+  resize: vertical;
 }
-.form-textarea:hover, .form-textarea:focus {
+.form-textarea:focus {
   border-color: #3EA1D1;
   outline: none; /* デフォルトの青いラインを消す */
 }
 
 .contact__privacy {
   margin-top: 28px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
+  border: 1px solid red;
 }
 
+.form-checkbox {
+  position: relative;
+}
+
+.form-checkbox__input {
+  /*選択はできるけど見えない位置へ*/
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+.form-checkbox__input:checked + .form-checkbox__text::after {
+  opacity: 1;
+}
+
+.form-checkbox__text {
+  font-size: 16px;
+}
 .form-checkbox__text a {
-  border-bottom: 1px solid #3EA1D1;
+  text-decoration-line: underline;
   color: #3EA1D1;
+}
+.form-checkbox__text::before, .form-checkbox__text::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  margin-block: auto;
+}
+.form-checkbox__text::before {
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border: 1px solid #3EA1D1;
+}
+.form-checkbox__text::after {
+  opacity: 0;
+  width: 19.414px;
+  height: 14.621px;
+  left: 1.29px;
+  background: url("../../img/icon-checked.png") no-repeat center center/contain;
 }
 
 .contact__button {
@@ -1094,7 +1195,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 23px;
+  margin-top: 46px;
 }
 
 /*----------------------------------
