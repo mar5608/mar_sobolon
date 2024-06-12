@@ -1163,6 +1163,7 @@ body {
 
 .form-checkbox__text {
   font-size: 16px;
+  padding-left: 30px;
 }
 .form-checkbox__text a {
   text-decoration-line: underline;
