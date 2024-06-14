@@ -859,13 +859,14 @@ body {
 .motto__content {
   // margin-top: 34px;
   max-width: 600px;
+  margin-inline: auto;
   @include mixin.mq(pc) {
     // width: 50%;
     // margin-top: 1px;
     // padding-left: 20px;
     // padding-right: 80px;
     flex-grow: 1; //フレックスコンテナー内の残りの空間
-    margin-top: 6px;
+    margin-top: 4px;
   }
 }
 
@@ -888,7 +889,7 @@ body {
   @include mixin.mq(pc) {
     // font-size: 16px;
     font-size: clamp(0.875rem, 0.653rem + 0.46vw, 1rem);
-    margin-top: 36px;
+    margin-top: 32px;
   }
 }
 
@@ -900,8 +901,7 @@ body {
   // margin-top: 96px;
   // padding-top: 48px;
   // padding-bottom: 56px;
-  background: url("../../img/contact-bg_sp.png") no-repeat center center /
-    contain;
+  background: url("../../img/contact-bg_sp.png") no-repeat center center / cover;
   @include mixin.mq(pc) {
     // margin-top: 160px;
     // padding-top: 80px;
@@ -921,6 +921,9 @@ body {
   margin-top: 64px; //46px;
   .is-required {
     color: #e7728e;
+  }
+  @include mixin.mq(pc) {
+    margin-top: 66px;
   }
 }
 
@@ -954,6 +957,8 @@ body {
   }
   .is-required {
     color: #e7728e;
+    font-size: 10px;
+    font-weight: 600;
   }
 }
 
@@ -965,12 +970,13 @@ body {
   padding: 4px 16px;
   align-items: center;
   @include mixin.mq(pc) {
+    clip-path: polygon(0% 0%, 97% 0, 100% 50%, 97% 100%, 0% 100%);
     width: 180px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    padding: 5px 11px 4px 11px;
     &::before {
       right: 0;
       width: 10px;
@@ -982,7 +988,10 @@ body {
 }
 
 .form-field__label {
+  font-weight: 600;
+  font-size: 14px;
   @include mixin.mq(pc) {
+    font-size: 18px;
   }
 }
 
@@ -1049,36 +1058,6 @@ body {
   height: 40px;
   display: grid;
   place-items: center;
-
-  //form-field_radio-textを起点にして擬似要素を作っていく
-  // &::before,
-  // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   left: 0;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   // border-radius: 50%;
-  // }
-  // &::before {
-  //   width: 24px;
-  //   height: 24px;
-  //   border: 1px solid color.$base-white;
-  //   background: color.$base-white;
-  //   width: 80px;
-  //   height: 42px;
-  //   // left: 0;
-  //   transition: border-color 0.3s; /*hover時 ○はbeforeで作成されているのでここ*/
-  // }
-
-  // //after 中のオレンジの丸
-  // &::after {
-  //   width: 78px;
-  //   height: 40px;
-  //   background: color.$main-blue;
-  //   left: 1px;
-  //   opacity: 1; //0にかえる
-  // }
 }
 
 .form-textarea {
@@ -1102,7 +1081,6 @@ body {
   // justify-content: center;
   align-items: center;
   text-align: center;
-  border: 1px solid red;
 }
 
 .form-checkbox {
@@ -1143,6 +1121,7 @@ body {
   }
 
   &::before {
+    left: 0;
     width: 22px;
     height: 22px;
     background: color.$base-white;
@@ -1169,9 +1148,11 @@ body {
     footer
 -----------------------------------*/
 .footer {
-  padding-top: 40px;
-  padding-bottom: 10px;
+  padding-block: 40px 7px;
   background: #f7f7f7;
+  @include mixin.mq(pc) {
+    padding-bottom: 14px;
+  }
 }
 
 .footer__inner {
@@ -1182,32 +1163,46 @@ body {
 .footer__logo {
   margin: 0 auto;
 
-  width: 120px;
   transition: opacity 0.3s;
-  img {
-    max-width: 100%;
-    height: auto;
+  a {
+    img {
+      width: 120px;
+      display: block;
+      margin-inline: auto;
+    }
   }
+
   &:hover {
     opacity: 0.6;
   }
 }
 
-.footer__link {
+.footer__menu-items {
   margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 
-  a {
-    display: block;
-    text-align: center;
-    @include mixin.mq(pc) {
-      display: flex;
-      flex-direction: column;
-    }
+  @include mixin.mq(pc) {
+    // display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
   }
 }
-
-.footer__nav-list {
+.footer__menu-item {
   font-size: 12px;
+}
+
+.footer__menu-link {
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+.footer__sns-items {
+  // font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1215,21 +1210,7 @@ body {
   margin-top: 18px;
 }
 
-.footer__privacy {
-  transition: opacity 0.3s;
-  &:hover {
-    opacity: 0.6;
-  }
-}
-
-.footer__legal {
-  transition: opacity 0.3s;
-  &:hover {
-    opacity: 0.6;
-  }
-}
-
-.footer__nav-link {
+.footer__sns-link {
   width: 21px;
   height: 21px;
   img {
@@ -1244,8 +1225,15 @@ body {
 
 .footer__copyright-content {
   margin-top: 24px;
-  color: #888888;
   text-align: center;
+  font-size: 12px;
+  small {
+    color: #888888;
+    font-size: inherit; //要素のプロパティの計算値を親要素から取得するよう指定
+  }
+  @include mixin.mq(pc) {
+    margin-top: 28px;
+  }
 }
 
 /*----------------------------------
