@@ -6,6 +6,14 @@
     共通
 -----------------------------------*/
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: config.$header-height-sp;
+  @include mixin.mq(pc) {
+    scroll-padding-top: config.$header-height-pc;
+  }
+}
+
 body {
   font-family: config.$font-family;
   font-size: config.$font-size-base;
@@ -121,9 +129,18 @@ body {
 -----------------------------------*/
 
 .header {
-  height: 60px;
+  height: config.$header-height-sp;
+  // height: 60px;
+  /*header固定*/
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  background: #fff;
+
   @include mixin.mq(pc) {
-    height: 70px;
+    height: config.$header-height-pc;
+    // height: 70px;
   }
 
   //   position: fixed;
@@ -261,7 +278,7 @@ body {
   // height: 100%;
   height: calc(100% - 60px);
   position: fixed;
-  top: 60;
+  top: config.$header-height-sp;
   right: 0;
   color: color.$base-white;
   background: color.$main-blue;
