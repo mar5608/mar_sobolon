@@ -711,8 +711,9 @@ body {
 @media screen and (min-width: 768px) {
   .products-link {
     width: clamp(12.5rem, 5.5rem + 14.58vw, 16.438rem);
+    overflow: hidden;
   }
-  .products-link:hover .products__link-image img {
+  .products-link:hover .products__link-image {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
   }
@@ -724,14 +725,8 @@ body {
 .products__link-image {
   text-align: center;
 }
-.products__link-image img {
-  width: 100%;
-}
 @media screen and (min-width: 768px) {
   .products__link-image {
-    overflow: hidden;
-  }
-  .products__link-image img {
     -webkit-transition: -webkit-transform 0.5s;
     transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
@@ -829,6 +824,7 @@ body {
     margin-top: 2px;
     -ms-flex-negative: 0;
         flex-shrink: 0;
+    overflow: hidden;
   }
 }
 .news__link-img img {
@@ -839,6 +835,10 @@ body {
 @media screen and (min-width: 768px) {
   .news__link-img img {
     aspect-ratio: 260/160;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
   }
 }
 
@@ -851,6 +851,10 @@ body {
         -ms-flex-align: start;
             align-items: flex-start;
     gap: 40px;
+  }
+  .news-link:hover .news__link-img img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
 }
 
@@ -1155,8 +1159,9 @@ body {
   transition: border-color 0.3s;
 }
 .form-text:hover, .form-text:focus {
-  border-color: #3EA1D1;
-  outline: none; /* デフォルトの青いラインを消す */
+  outline: #3EA1D1 auto 1px;
+  -webkit-box-shadow: 5px 6px 16px 0px rgba(62, 161, 209, 0.16);
+          box-shadow: 5px 6px 16px 0px rgba(62, 161, 209, 0.16);
 }
 
 .form-filed__radios {
@@ -1185,6 +1190,11 @@ body {
   background-color: #3EA1D1;
   color: #fff;
 }
+.form-radio__input:focus + .form-radio__text {
+  outline: #3EA1D1 auto 1px;
+  -webkit-box-shadow: 5px 6px 16px 0px rgba(62, 161, 209, 0.16);
+          box-shadow: 5px 6px 16px 0px rgba(62, 161, 209, 0.16);
+}
 
 .form-radio__text {
   font-size: 16px;
@@ -1210,8 +1220,9 @@ body {
   resize: vertical;
 }
 .form-textarea:focus {
-  border-color: #3EA1D1;
-  outline: none; /* デフォルトの青いラインを消す */
+  outline: #3EA1D1 auto 1px;
+  -webkit-box-shadow: 5px 6px 16px 0px rgba(62, 161, 209, 0.16);
+          box-shadow: 5px 6px 16px 0px rgba(62, 161, 209, 0.16);
 }
 
 .contact__privacy {
@@ -1241,6 +1252,11 @@ body {
 }
 .form-checkbox__input:checked + .form-checkbox__text::after {
   opacity: 1;
+}
+.form-checkbox__input:focus + .form-checkbox__text::before {
+  outline: #3EA1D1 auto 1px;
+  -webkit-box-shadow: 5px 6px 16px 0px rgba(62, 161, 209, 0.16);
+          box-shadow: 5px 6px 16px 0px rgba(62, 161, 209, 0.16);
 }
 
 .form-checkbox__text {

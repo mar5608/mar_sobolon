@@ -661,12 +661,12 @@ body {
   @include mixin.mq(pc) {
     // width: 260px;
     width: clamp(12.5rem, 5.5rem + 14.58vw, 16.438rem); //200px-263px
-
+    overflow: hidden;
     &:hover {
       .products__link-image {
-        img {
-          transform: scale(1.1);
-        }
+        // img {
+        transform: scale(1.1);
+        // }
       }
     }
   }
@@ -679,14 +679,14 @@ body {
 
 .products__link-image {
   text-align: center;
-  img {
-    width: 100%;
-  }
+  // img {
+  //   width: 100%;
+  // }
   @include mixin.mq(pc) {
-    overflow: hidden;
-    img {
-      transition: transform 0.5s;
-    }
+    // overflow: hidden;
+    // img {
+    transition: transform 0.5s;
+    // }
   }
 }
 .products__link-meta {
@@ -788,14 +788,17 @@ body {
     // width: 260px;
     width: 260px;
     height: 100%;
+    // height: 260px;
     margin-top: 2px;
     flex-shrink: 0; //縮めない
+    overflow: hidden;
   }
   img {
     aspect-ratio: 260 /160;
     object-fit: cover;
     @include mixin.mq(pc) {
       aspect-ratio: 260 /160;
+      transition: transform 0.5s;
     }
   }
 }
@@ -804,6 +807,14 @@ body {
     display: flex;
     align-items: flex-start; //子要素を上部で揃える指定
     gap: 40px;
+
+    &:hover {
+      .news__link-img {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
   }
 }
 
@@ -1057,8 +1068,10 @@ body {
   transition: border-color 0.3s;
   &:hover,
   &:focus {
-    border-color: color.$main-blue;
-    outline: none; /* デフォルトの青いラインを消す */
+    // border-color: color.$main-blue;
+    // outline: none; /* デフォルトの青いラインを消す */
+    outline: color.$main-blue auto 1px;
+    box-shadow: 5px 6px 16px 0px rgba(color.$main-blue, 0.16);
   }
 }
 
@@ -1087,6 +1100,10 @@ body {
     background-color: color.$main-blue;
     color: color.$base-white;
   }
+  &:focus + .form-radio__text {
+    outline: color.$main-blue auto 1px;
+    box-shadow: 5px 6px 16px 0px rgba(color.$main-blue, 0.16);
+  }
 }
 
 .form-radio__text {
@@ -1112,8 +1129,10 @@ body {
   font-size: 16px;
   resize: vertical; //テキストエリアを縦に伸ばす&:hover,
   &:focus {
-    border-color: color.$main-blue;
-    outline: none; /* デフォルトの青いラインを消す */
+    // border-color: color.$main-blue;
+    // outline: none; /* デフォルトの青いラインを消す */
+    outline: color.$main-blue auto 1px;
+    box-shadow: 5px 6px 16px 0px rgba(color.$main-blue, 0.16);
   }
 }
 
@@ -1145,8 +1164,14 @@ body {
       opacity: 1;
     }
   }
-}
 
+  &:focus + .form-checkbox__text {
+    &::before {
+      outline: color.$main-blue auto 1px;
+      box-shadow: 5px 6px 16px 0px rgba(color.$main-blue, 0.16);
+    }
+  }
+}
 .form-checkbox__text {
   font-size: 16px;
   padding-left: 30px;
