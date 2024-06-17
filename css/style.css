@@ -712,13 +712,31 @@ body {
   .products-link {
     width: clamp(12.5rem, 5.5rem + 14.58vw, 16.438rem);
   }
-  .products-link:hover .products-link img {
+  .products-link:hover .products__link-image img {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
   }
 }
 .products-link img {
   aspect-ratio: 1/1;
+}
+
+.products__link-image {
+  text-align: center;
+}
+.products__link-image img {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .products__link-image {
+    overflow: hidden;
+  }
+  .products__link-image img {
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+  }
 }
 
 .products__link-meta {

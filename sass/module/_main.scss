@@ -663,7 +663,7 @@ body {
     width: clamp(12.5rem, 5.5rem + 14.58vw, 16.438rem); //200px-263px
 
     &:hover {
-      .products-link {
+      .products__link-image {
         img {
           transform: scale(1.1);
         }
@@ -677,6 +677,18 @@ body {
   }
 }
 
+.products__link-image {
+  text-align: center;
+  img {
+    width: 100%;
+  }
+  @include mixin.mq(pc) {
+    overflow: hidden;
+    img {
+      transition: transform 0.5s;
+    }
+  }
+}
 .products__link-meta {
   font-size: 14px;
 }
