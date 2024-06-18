@@ -711,7 +711,6 @@ body {
 @media screen and (min-width: 768px) {
   .products-link {
     width: clamp(12.5rem, 5.5rem + 14.58vw, 16.438rem);
-    overflow: hidden;
   }
   .products-link:hover .products__link-image {
     -webkit-transform: scale(1.1);
@@ -720,6 +719,12 @@ body {
 }
 .products-link img {
   aspect-ratio: 1/1;
+}
+
+.products__link-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .products__link-image {
